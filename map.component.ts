@@ -1,3 +1,21 @@
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+constructor(private apiService: ApiService, private geolocation: Geolocation) {}
+
+ngOnInit() {
+  this.geolocation.getCurrentPosition().then((resp) => {
+    this.map.flyTo({
+      center: [resp.coords.longitude, resp.coords.latitude],
+      zoom: 15
+    });
+    new Marker()
+      .setLngLat([resp.coords.longitude, resp.coords.latitude])
+      .addTo(this.map);
+  }).catch((error) => {
+    console.log('Error getting location', error);
+  });
+}
+
 private drawRoute(deviceId: string) {
   const token = 'your_token'; // Fetch or store the token appropriately
   this.apiService.getRouteData(deviceId, token).subscribe(routeData => {
@@ -42,4 +60,7 @@ flyToDevice(deviceId: string) {
   });
 }
 }
+
+
+
 
