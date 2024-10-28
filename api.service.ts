@@ -20,6 +20,12 @@ export class ApiService {
     });
   }
 
+  getRouteData(deviceId: string, token: string): Observable<any> {
+  return this.http.get(`${this.apiUrl}/trackerdata/${deviceId}/route`, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+}
+
   getLastTrackingData(deviceId: string, token: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/trackerdata/${deviceId}/last_points?lastPoints=50`, {
       headers: { Authorization: `Bearer ${token}` }
