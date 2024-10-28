@@ -4,9 +4,9 @@ command: npm install @maplibre/maplibre-gl @ionic-native/geolocation
 
 Step 2. Create a service for API interactions:
 
-Generate a service using the CLI:
+Generate a service for API interactions:
 
-command: ionic generate service api
+command: ionic generate service services/api
 
 Step 3: Fetch and Display Device Locations on Map
 
