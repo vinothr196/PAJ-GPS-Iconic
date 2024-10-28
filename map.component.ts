@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { Map, Marker } from 'maplibre-gl';
 
 @Component({
@@ -34,7 +34,7 @@ export class MapComponent implements OnInit {
     this.map = new Map({
       container: 'map',
       style: 'https://demotiles.maplibre.org/style.json',
-      center: [0, 0], // Initial center
+      center: [0, 0],
       zoom: 2
     });
   }
@@ -43,5 +43,9 @@ export class MapComponent implements OnInit {
     new Marker()
       .setLngLat([position.longitude, position.latitude])
       .addTo(this.map);
+  }
+
+  flyToDevice(deviceId: string) {
+    // Logic to fly to the last known position of the device
   }
 }
