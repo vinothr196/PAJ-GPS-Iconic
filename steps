@@ -1,6 +1,6 @@
 Step 1. Install required libraries
 
-command: npm install @maplibre/maplibre-gl
+command: npm install @maplibre/maplibre-gl @ionic-native/geolocation
 
 Step 2. Create a service for API interactions:
 
